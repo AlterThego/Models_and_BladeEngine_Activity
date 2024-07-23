@@ -16,12 +16,22 @@ class BookFactory extends Factory
      */
     public function definition(): array
     {
+        // Generate a random ISBN-13 without dashes
+        $isbnWithoutDashes = $this->faker->isbn13;
+
+        // Format the ISBN-13 with dashes
+        $formattedIsbn = substr($isbnWithoutDashes, 0, 3) . '-' .
+            substr($isbnWithoutDashes, 4, 2) . '-' .
+            substr($isbnWithoutDashes, 6, 5) . '-' .
+            substr($isbnWithoutDashes, 11, 2) . '-' .
+            substr($isbnWithoutDashes, 12, 1);
         return [
-            'isbn' => fake()->isbn13(),
-            'title' => fake()->title(),
-            'author' => fake()->name(),
-            'description' => fake()->sentence(),
-            'date_published' => fake()->date(),
+            'isbn' => $formattedIsbn,
+            'title' => $this->faker->sentence(),
+            'author' => $this->faker->name(),
+            'description' => $this->faker->sentence(),
+            'date_published' => $this->faker->date(),
         ];
     }
+
 }
