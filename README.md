@@ -17,8 +17,9 @@ Create a New project called "Models_and_BladeEngine_Activity"
 <b>2. Create Book Model</b>
 Generate a Book model using Artisan command-line tool:
 - This will create a Book.php file in the app/Models directory.
-- add the following code inside the model:
-use HasFactory;
+- add the following code inside the model:<br>
+use HasFactory; <br>
+
 <b>3. Database Migration:</b>
 Generate a migration for the books table:
 Edit the migration file to define the schema for the books table, including fields like id, isbn, title, author, description, etc. Run the migration to create the table in the database:
